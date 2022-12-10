@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INSTALL_FOLDER=/usr/share/ad2
+INSTALL_FOLDER=/usr/local/ad2
 
 echo "Creating folder ad2"
 sudo mkdir ${INSTALL_FOLDER}
