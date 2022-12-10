@@ -3,16 +3,9 @@
 </br>
 
 **Copy-paste following command in SSH console and press Enter key. The script will install and configure acarsdeco2.** </br></br>
-`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/ad2/master/install-ad2.sh)" ` </br></br>
+`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/milirey/ad2/master/install-ad2.sh)" ` </br></br>
 
-**If installing on 64-bit Raspberry Pi OS** </br>
-Befor issueing above bash command, give following additional commands: </br>
-```
-sudo dpkg --add-architecture armhf   
-sudo apt update 
-
-sudo apt install libudev-dev:armhf  
-```
+  
 </br>
 
 **After script completes installation, it displays following message** </br>
