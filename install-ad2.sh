@@ -90,7 +90,7 @@ sudo chmod 777 ${SERVICE_FILE}
 EOM
 sudo chmod 644 ${SERVICE_FILE}
 # sudo systemctl enable ad2
-sudo launchctl load ${SERVICE_FILE}
+launchctl load ${SERVICE_FILE}
 
 # the following lines don't make sense in MacOS
 # need to replace them somehow
