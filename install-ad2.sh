@@ -90,7 +90,7 @@ sudo chmod 777 ${SERVICE_FILE}
 EOM
 sudo chmod 644 ${SERVICE_FILE}
 # sudo systemctl enable ad2
-launchctl load ${SERVICE_FILE}
+launchctl bootstrap ${SERVICE_FILE}
 
 # the following lines don't make sense in MacOS
 # need to replace them somehow
@@ -111,7 +111,7 @@ launchctl load ${SERVICE_FILE}
 
 echo "Starting  AcarSDeco2 ..."
 # sudo systemctl start ad2
-sudo launchctl start service.ad2
+launchctl start service.ad2
 
 echo ''
 echo ''
@@ -120,10 +120,10 @@ echo '======================'
 echo ' PLEASE DO FOLLOWING. '
 echo '======================'
 echo 'In your browser, go to web interface at'
-echo 'http://$(route | grep -m1 -o 'src \K[0-9,.]*'):8686'
+echo "http://$(ipconfig getifaddr en0):8686"
 echo ''
 echo 'To view/edit configuration, open config file by following command'
-echo '                           sudo nano "${INSTALL_FOLDER}"/ad2.conf '
+echo '                           sudo nano ${INSTALL_FOLDER}/ad2.conf '
 echo ''
 echo '  (a) Default value of gain is auto'
 echo '      To use another value of gain, add following NEW LINE'
