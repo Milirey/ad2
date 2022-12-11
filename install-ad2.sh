@@ -93,6 +93,7 @@ sudo chmod 644 ${SERVICE_FILE}
 sudo launchctl load ${SERVICE_FILE}
 
 # the following lines don't make sense in MacOS
+# need to replace them somehow
 # echo "Creating blacklist-rtl-sdr file..."
 # BLACKLIST_FILE=/etc/modprobe.d/blacklist-rtl-sdr.conf
 # sudo touch ${BLACKLIST_FILE}
@@ -119,7 +120,7 @@ echo '======================'
 echo ' PLEASE DO FOLLOWING. '
 echo '======================'
 echo 'In your browser, go to web interface at'
-echo 'http://$(ip route | grep -m1 -o -P 'src \K[0-9,.]*'):8686'
+echo 'http://$(route | grep -m1 -o 'src \K[0-9,.]*'):8686'
 echo ''
 echo 'To view/edit configuration, open config file by following command'
 echo '                           sudo nano "${INSTALL_FOLDER}"/ad2.conf '
