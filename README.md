@@ -1,8 +1,8 @@
 # ad2
-### AcarSDeco2 installation script for RPi 2/3/4 and Raspberry Pi OS Stretch/Buster/Bullseye 
+### AcarSDeco2 installation script for MacOS
 </br>
 
-**Copy-paste following command in SSH console and press Enter key. The script will install and configure acarsdeco2.** </br></br>
+**Copy-paste following command in Terminal and press Enter key. The script will install and configure acarsdeco2.** </br></br>
 `sudo bash -c "$(wget -O - https://raw.githubusercontent.com/milirey/ad2/master/install-ad2.sh)" ` </br></br>
 
   
@@ -16,10 +16,10 @@ INSTALLATION COMPLETED
 PLEASE DO FOLLOWING:
 =======================
 (1) In your browser, go to web interface at
-     http://ip-of-pi:8686
+     http://MacBook-ip:8686
 
 (2) To view/edit configuration, open config file by following command:
-     sudo nano /usr/share/ad2/ad2.conf
+     sudo nano /usr/local/ad2/ad2.conf
 
     (a) Default value of gain is auto
         To use another value of gain, add following NEW LINE
@@ -32,18 +32,18 @@ PLEASE DO FOLLOWING:
 
     Save (Ctrl+o) and Close (Ctrl+x) the file
     then restart ad2 by following command:
-          sudo systemctl restart ad2
+          launchctl start service.ad2
 
-To see status sudo systemctl status ad2
-To restart    sudo systemctl restart ad2
-To stop       sudo systemctl stop ad2
+To see status launchctl status service.ad2
+To restart    launchctl start service.ad2
+To stop       launchctl stop service.ad2
 ```
 
 ### CONFIGURATION </br>
 The configuration file can be edited by following command: </br>
-`sudo nano /usr/share/ad2/ad2.conf ` </br></br>
+`sudo nano /usr/local/ad2/ad2.conf ` </br></br>
 **Default contents of config file**</br>
-Default setting are are bare minimum. </br>
+Default setting are bare minimum. </br>
 You can add extra arguments, one per line starting with `--` </br>
 ```
 
@@ -56,15 +56,15 @@ You can add extra arguments, one per line starting with `--` </br>
 
 **To see all config parameters** </br>
 ```
-cd /usr/share/ad2
+cd /usr/local/ad2
 ./acarsdeco2 --help
 ```
 
 ### UNINSTALL </br>
 To completely remove configuration and all files, give following 4 commands:</br>
 ```
-sudo systemctl stop ad2 
-sudo systemctl disable ad2 
-sudo rm /lib/systemd/system/ad2.service 
-sudo rm -rf /usr/share/ad2 
+launchctl stop service.ad2 
+launchctl disable service.ad2 
+sudo rm ~/library/launchagents/service.ad2.plist 
+sudo rm -rf /usr/local/ad2 
 ```
