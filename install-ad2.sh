@@ -74,10 +74,9 @@ sudo chmod 777 ${SERVICE_FILE}
     <key>Label</key>
     <string>service.ad2</string>
     <key>Program</key>
-    <string>acarsdeco2</string>
+    <string>${INSTALL_FOLDER}/ad2-start.sh</string>
     <key>ProgramArguments</key>
-    <array>             
-        <string>${INSTALL_FOLDER}/ad2-start.sh</string>
+    <array>            
     </array>
     <key>RunAtLoad</key>
     <false/>
