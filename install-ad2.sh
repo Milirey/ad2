@@ -77,7 +77,7 @@ sudo chmod 777 ${SERVICE_FILE}
     <string>acarsdeco2</string>
     <key>ProgramArguments</key>
     <array>             
-        <string>/bin/bash ${INSTALL_FOLDER}/ad2-start.sh</string>
+        <string>${INSTALL_FOLDER}/ad2-start.sh</string>
     </array>
     <key>RunAtLoad</key>
     <false/>
@@ -90,7 +90,7 @@ sudo chmod 777 ${SERVICE_FILE}
 EOM
 sudo chmod 644 ${SERVICE_FILE}
 # sudo systemctl enable ad2
-launchctl bootstrap ${SERVICE_FILE}
+launchctl bootstrap user/501 ${SERVICE_FILE}
 
 # the following lines don't make sense in MacOS
 # need to replace them somehow
