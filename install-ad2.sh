@@ -7,11 +7,11 @@ sudo mkdir ${INSTALL_FOLDER}
 #echo "Downloading acarsdeco2 file from Google Drive"
 #sudo wget -O ${INSTALL_FOLDER}/acarsdeco2_rpi2-3_debian9_20181201.tgz "https://drive.google.com/uc?export=download&id=1n0nWk-VRqj-Zamm29-DVYG8eQ8tVdv82"
 echo "Downloading acarsdeco2 file from Github"
-sudo wget -O ${INSTALL_FOLDER}/acarsdeco2_rpi2-3_debian9_20181201.tgz "https://github.com/abcd567a/ad2/releases/download/V1/acarsdeco2_rpi2-3_debian9_20181201.tgz"
+# temporarily blocked sudo wget -O ${INSTALL_FOLDER}/acarsdeco2_rpi2-3_debian9_20181201.tgz "https://github.com/abcd567a/ad2/releases/download/V1/acarsdeco2_rpi2-3_debian9_20181201.tgz"
 
 # for unziping tar is obviously necessary - look for it with 'brew search gnu-tar' or 'port search gnutar'
 echo "Unzipping downloaded file"
-sudo tar xvzf ${INSTALL_FOLDER}/acarsdeco2_rpi2-3_debian9_20181201.tgz -C ${INSTALL_FOLDER}
+# temporarily blocked sudo tar xvzf ${INSTALL_FOLDER}/acarsdeco2_rpi2-3_debian9_20181201.tgz -C ${INSTALL_FOLDER}
 
 # in Macos usr/bin access is restricted by SIP - moving to home directory 
 echo "Creating symlink to acarsdeco2 binary in folder ~/bin/ "
