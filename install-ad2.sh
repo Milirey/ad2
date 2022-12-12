@@ -45,8 +45,8 @@ sudo chmod 644 ${CONFIG_FILE}
 
 echo "Creating Service file ad2.service"
 # SERVICE_FILE=/lib/systemd/system/ad2.service in MacOS this doesn't work try maintain launchd instead
-SERVICE_FILE=~/Library/LaunchAgents/service.ad2.plist
-touch ${SERVICE_FILE}
+SERVICE_FILE=Library/LaunchAgents/service.ad2.plist
+sudo touch ${SERVICE_FILE}
 sudo chmod 777 ${SERVICE_FILE}
 # acarsdeco2 service for systemd - replace the following lines with launchd syntax 
 # [Unit]
@@ -89,7 +89,7 @@ sudo chmod 777 ${SERVICE_FILE}
 EOM
 sudo chmod 644 ${SERVICE_FILE}
 # sudo systemctl enable ad2
-launchctl bootstrap user/501 ${SERVICE_FILE}
+sudo launchctl bootstrap system/${SERVICE_FILE}
 
 # the following lines don't make sense in MacOS
 # need to replace them somehow
@@ -110,7 +110,7 @@ launchctl bootstrap user/501 ${SERVICE_FILE}
 
 echo "Starting  AcarSDeco2 ..."
 # sudo systemctl start ad2
-launchctl start service.ad2
+sudo launchctl start service.ad2
 
 echo ''
 echo ''
