@@ -48,7 +48,6 @@ echo "Creating Service file ad2.service"
 SERVICE_FILE=~/Library/LaunchAgents/service.ad2.plist
 touch ${SERVICE_FILE}
 sudo chmod 777 ${SERVICE_FILE}
-/bin/cat <<EOM >${SERVICE_FILE}
 # acarsdeco2 service for systemd - replace the following lines with launchd syntax 
 # [Unit]
 # Description=AcarSDeco2
@@ -66,6 +65,7 @@ sudo chmod 777 ${SERVICE_FILE}
 # Nice=-5
 # [Install]
 # WantedBy=default.target
+/bin/cat <<EOM >${SERVICE_FILE}
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -135,10 +135,10 @@ echo '    --freq-correction xx '
 echo ''
 echo 'Save (Ctrl+o) and Close (Ctrl+x) the file'
 echo 'then restart ad2 by following command:'
-echo '                            sudo launchctl restart service.ad2 '
+echo '                            sudo launchctl kickstart service.ad2'
 echo ''
 echo 'To see status:              sudo launchctl status service.ad2'
-echo 'To restart:                 sudo launchctl restart service.ad2'
+echo 'To restart:                 sudo launchctl kickstart service.ad2'
 echo 'To stop:                    sudo launchctl stop service.ad2'
 
 
