@@ -13,10 +13,9 @@ echo "Downloading acarsdeco2 file from Github"
 echo "Unzipping downloaded file"
 # temporarily blocked sudo tar xvzf ${INSTALL_FOLDER}/acarsdeco2_rpi2-3_debian9_20181201.tgz -C ${INSTALL_FOLDER}
 
-# in Macos usr/bin access is restricted by SIP - moving to home directory 
-echo "Creating symlink to acarsdeco2 binary in folder ~/bin/ "
-sudo mkdir ~/bin
-sudo ln -s ${INSTALL_FOLDER}/acarsdeco2  ~/bin/acarsdeco2
+# in Macos usr/bin access is restricted by SIP - moving to /usr/local/bin directory 
+echo "Creating symlink to acarsdeco2 binary in folder /usr/local/bin/ "
+sudo ln -s ${INSTALL_FOLDER}/acarsdeco2  /usr/local/bin/acarsdeco2
 
 echo "Creating startup script file ad2-start.sh"
 SCRIPT_FILE=${INSTALL_FOLDER}/ad2-start.sh
@@ -73,17 +72,33 @@ sudo chmod 777 ${SERVICE_FILE}
 <dict>
     <key>Label</key>
     <string>service.ad2</string>
-    <key>Program</key>
-    <string>${INSTALL_FOLDER}/ad2-start.sh</string>
     <key>ProgramArguments</key>
-    <array>            
+    <array>
+    <string>bin/bash</string>
+    <string>${INSTALL_FOLDER}/ad2-start.sh</string>
     </array>
     <key>RunAtLoad</key>
     <false/>
-    <key>Nice</key>
-    <integer>-5</integer>
     <key>KeepAlive</key>
-    <false/>
+<dict>
+	<key>NetworkState</key>
+	<true/>
+	<key>Crashed</key>
+	<true/>
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+</dict>
+<key>EnvironmentVariables</key>
+<dict>
+	<key>PATH</key>
+	<string>/bin:/usr/bin:/usr/local/bin:</string>
+</dict>
+<key>StandardOutPath</key>
+<string>/var/log/service.ad2.log</string>
+<key>StandardErrorPath</key>
+<string>/var/log/error.ad2.log</string>
+    <key>Nice</key>
+    <integer>-5</integer>  
 </dict>
 </plist> 
 EOM
